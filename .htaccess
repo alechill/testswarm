@@ -4,7 +4,7 @@ Deny from all
 </Files>
 
 RewriteEngine On
-RewriteBase /
+RewriteBase /personal/testswarm
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

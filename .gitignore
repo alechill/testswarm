@@ -1,2 +1,6 @@
 config.ini
 .project
+.DS_Store
+Thumbs.db
+.buildpath
+.settings
