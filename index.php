@@ -45,6 +45,7 @@ if ( $title ) {
 		<?php if ( $_SESSION['username'] && $_SESSION['auth'] == 'yes' ) { ?>
 		<li><strong><a href="<?php echo $contextpath; ?>/user/<?php echo $_SESSION['username'];?>/"><?php echo $_SESSION['username'];?></a></strong></li>
 		<li><a href="<?php echo $contextpath; ?>/run/<?php echo $_SESSION['username'];?>/">Join the Swarm</a></li>
+		<li><a href="<?php echo $contextpath; ?>/addjob/">Add Job</a></li>
 		<li><a href="<?php echo $contextpath; ?>/logout/">Logout</a></li>
 		<?php } else { ?>
 		<li><a href="<?php echo $contextpath; ?>/login/">Login</a></li>

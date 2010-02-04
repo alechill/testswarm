@@ -1,13 +1,21 @@
 <?php
 
 	$title = "Add New Job";
-
-	if ( $_REQUEST['state'] == "addjob" ) {
-		$username = preg_replace("/[^a-zA-Z0-9_ -]/", "", $_REQUEST['user']);
-		$auth = preg_replace("/[^a-z0-9]/", "", $_REQUEST['auth']);
-
+	
+	// check for job_name as well as otherwise we never see the addjob template
+	if ( $_REQUEST['state'] == "addjob" && isset($_REQUEST['job_name']) ) {
+		
+		// if user details are stored in the session use those
+		if(isset($_SESSION['username']) && isset($_SESSION['auth_token'])){
+			$username = $_SESSION['username'];
+			$auth = $_SESSION['auth_token'];
+		}else{
+			$username = preg_replace("/[^a-zA-Z0-9_ -]/", "", $_REQUEST['user']);
+			$auth = preg_replace("/[^a-z0-9]/", "", $_REQUEST['auth']);
+		}
+		
 		$result = mysql_queryf("SELECT id FROM users WHERE name=%s AND auth=%s;", $username, $auth);
-
+		
 		if ( $row = mysql_fetch_array($result) ) {
 			$user_id = intval($row[0]);
 

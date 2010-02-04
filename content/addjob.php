@@ -1,11 +1,11 @@
-<form action="<?php echo $GLOBALS['contextpath']; ?>" method="POST">
+<form action="" method="POST">
 <input type="hidden" name="client_id" value="<?php echo $client_id; ?>"/>
 <input type="hidden" name="state" value="addjob"/>
 <fieldset>
 <legend>Job Information</legend>
 <label>Job Name: <input type="text" name="job_name"/></label><br/>
-<label>Your Username: <input type="text" name="user"/></label><br/>
-<label>Your Auth Token: <input type="text" name="auth"/></label><br/>
+<label>Your Username: <input type="text" name="user" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : '' ?>"/></label><br/>
+<label>Your Auth Token: <input type="text" name="auth" value="<?php echo isset($_SESSION['auth_code']) ? $_SESSION['auth_code'] : '' ?>"/></label><br/>
 <label>Number of Runs: <input type="text" name="max" value="1" size="2" maxlength="2"/></label><br/>
 </fieldset>
 <fieldset>
